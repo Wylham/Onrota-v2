@@ -81,7 +81,7 @@ export const SectionHeader: React.FC<{ title: string; subtitle?: string; align?:
           {subtitle}
         </p>
       )}
-      <div className={`h-1 w-24 bg-gradient-to-r from-brand-primary to-brand-accent rounded-full mt-6 ${align === 'center' ? 'mx-auto' : ''}`} />
+      <div className={`h-px w-24 bg-white/15 mt-6 ${align === 'center' ? 'mx-auto' : ''}`} />
     </div>
   );
 };
