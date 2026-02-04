@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center sm:bg-right"
           style={{ backgroundImage: "url(/img/onrotaliquid.png)" }}
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-black/70" />
       </div>
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -138,15 +138,15 @@ export const Hero: React.FC = () => {
             <div className="pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-semibold text-white">96%</h3>
-                <p className="text-sm text-gray-500">Redução de Fraudes</p>
+                <p className="text-sm text-white">Redução de Fraudes</p>
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-semibold text-white">+1K</h3>
-                <p className="text-sm text-gray-500">Motoristas/dia</p>
+                <p className="text-sm text-white">Motoristas/dia</p>
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-semibold text-white">24/7</h3>
-                <p className="text-sm text-gray-500">Monitoramento</p>
+                <p className="text-sm text-white">Monitoramento</p>
               </div>
             </div>
           </div>

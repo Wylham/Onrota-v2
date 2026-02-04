@@ -7,13 +7,18 @@ export const Footer: React.FC = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-             <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg">
-                  O
-                </div>
-                <span className="text-xl font-bold tracking-tight text-white">
-                  On<span className="text-brand-primary">Rota</span>
-                </span>
+             <div className="flex items-center mb-4">
+                <a
+                  href="#"
+                  aria-label="Ir para o início"
+                  className="inline-flex items-center"
+                >
+                  <img
+                    src="/logo/Ativo-25-SF.webp"
+                    alt="OnRota"
+                    className="h-10 w-auto object-contain sm:h-12"
+                  />
+                </a>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               Inovação e segurança para o transporte rodoviário de cargas. 

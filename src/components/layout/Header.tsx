@@ -27,13 +27,12 @@ export const Header: React.FC = () => {
       <Container>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-brand-primary/40 transition-all">
-              O
-            </div>
-            <span className="text-2xl font-bold tracking-tight text-white">
-              On<span className="text-brand-primary">Rota</span>
-            </span>
+          <a href="#" className="flex items-center">
+            <img
+              src="/logo/Ativo-25-SF.webp"
+              alt="OnRota"
+              className="h-10 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Nav */}
