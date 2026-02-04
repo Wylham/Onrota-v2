@@ -64,7 +64,7 @@ const TypingProduct: React.FC = () => {
 
   return (
     <span
-      className="relative inline-block align-baseline whitespace-nowrap text-brand-primary"
+      className="relative inline-block align-baseline whitespace-nowrap text-white"
       aria-live="polite"
     >
       <span className="invisible" aria-hidden="true">
@@ -92,7 +92,8 @@ export const Hero: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center sm:bg-right"
           style={{ backgroundImage: "url(/img/onrotaliquid.png)" }}
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/35 to-black/85" />
       </div>
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
