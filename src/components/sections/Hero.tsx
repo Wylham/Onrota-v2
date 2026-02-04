@@ -77,7 +77,11 @@ export const Hero: React.FC = () => {
                 é{" "}
                 <span className="inline-flex items-baseline whitespace-nowrap">
                   <span className="text-brand-primary">{typedProduct}</span>
-                  <span className={typedProduct ? "opacity-50" : "opacity-0"}>
+                  <span
+                    className={`ml-1 text-[0.8em] font-thin leading-none ${
+                      isDeleting ? "opacity-50" : "opacity-0"
+                    }`}
+                  >
                     |
                   </span>
                 </span>
