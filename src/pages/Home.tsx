@@ -15,7 +15,7 @@ import { WhatsappLogo } from "@phosphor-icons/react";
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-dark text-white font-sans selection:bg-brand-primary/30 selection:text-white">
+    <div className="min-h-screen bg-dark text-white font-sans selection:bg-brand-primary/30 selection:text-white overflow-x-hidden">
       <Header />
 
       <main>

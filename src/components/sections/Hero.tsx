@@ -15,8 +15,11 @@ const HERO_PRODUCTS = [
   "OnTrack",
   "OnDeep",
 ] as const;
+const HERO_PRODUCTS_MAX = HERO_PRODUCTS.reduce((longest, current) =>
+  current.length > longest.length ? current : longest,
+);
 
-export const Hero: React.FC = () => {
+const TypingProduct: React.FC = () => {
   const [productIndex, setProductIndex] = React.useState(0);
   const [typedProduct, setTypedProduct] = React.useState("");
   const [isDeleting, setIsDeleting] = React.useState(false);
@@ -60,8 +63,38 @@ export const Hero: React.FC = () => {
   }, [isDeleting, productIndex, typedProduct]);
 
   return (
-    <section className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-center bg-dark">
-      <Container>
+    <span
+      className="relative inline-block align-baseline whitespace-nowrap text-brand-primary"
+      aria-live="polite"
+    >
+      <span className="invisible" aria-hidden="true">
+        {HERO_PRODUCTS_MAX}
+      </span>
+      <span className="absolute inset-0">
+        {typedProduct}
+        <span
+          className={`ml-1 text-[0.8em] font-thin leading-none ${
+            isDeleting ? "opacity-50" : "opacity-0"
+          }`}
+        >
+          |
+        </span>
+      </span>
+    </span>
+  );
+};
+
+export const Hero: React.FC = () => {
+  return (
+    <section className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-center overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center sm:bg-right"
+          style={{ backgroundImage: "url(/img/onrotaliquid.png)" }}
+        />
+        <div className="absolute inset-0 bg-black/65" />
+      </div>
+      <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-7 sm:space-y-9 animate-fade-in-up">
             <Badge className="relative overflow-hidden bg-white/5 text-white/90 border-white/15 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.07),0_0_35px_rgba(29,167,229,0.22)] px-4 py-1 text-sm before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] before:opacity-50 before:animate-pulse">
@@ -73,21 +106,11 @@ export const Hero: React.FC = () => {
               <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-5xl sm:whitespace-nowrap">
                 O futuro do transporte
               </span>
-              <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl sm:whitespace-nowrap">
-                é{" "}
-                <span className="inline-flex items-baseline whitespace-nowrap">
-                  <span className="text-brand-primary">{typedProduct}</span>
-                  <span
-                    className={`ml-1 text-[0.8em] font-thin leading-none ${
-                      isDeleting ? "opacity-50" : "opacity-0"
-                    }`}
-                  >
-                    |
-                  </span>
-                </span>
+              <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl whitespace-nowrap">
+                é <TypingProduct />
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed max-w-xl">
               Reduza fraudes, automatize cadastros e valide motoristas em
               segundos. A plataforma completa para Gerenciadoras de Risco e
               Transportadoras.
