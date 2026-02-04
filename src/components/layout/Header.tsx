@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
     ? "bg-black/60 backdrop-blur-2xl"
     : "bg-black/45 backdrop-blur-xl";
   const glassMobileMenu =
-    "bg-black backdrop-blur-3xl bg-black backdrop-blur-xl backdrop-saturate-250 ";
+    "bg-black/95 backdrop-blur-3xl bg-black/95 backdrop-blur-xl backdrop-saturate-250 ";
   const mobileMenuMotion = isMobileMenuOpen
     ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
     : "opacity-0 -translate-y-1 scale-98 pointer-events-none";
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
             <img
               src="/logo/Ativo-25-SF.webp"
               alt="OnRota"
-              className="h-10 w-auto object-contain"
+              className="h-8 w-auto object-contain md:h-10"
             />
           </a>
 
@@ -91,7 +91,7 @@ export const Header: React.FC = () => {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`absolute top-full left-0 right-0 ${glassMobileMenu} border-b border-white/10 p-4 md:hidden flex flex-col gap-4 shadow-[0_24px_60px_rgba(0,0,0,0.45)] origin-top transform-gpu transition-[opacity,transform] duration-300 ease-out ${mobileMenuMotion}`}
+        className={`absolute top-full left-0 right-0 h-[calc(100vh-100%)] overflow-y-auto ${glassMobileMenu} border-b border-white/10 p-4 md:hidden flex flex-col gap-4 shadow-[0_24px_60px_rgba(0,0,0,0.45)] origin-top transform-gpu transition-[opacity,transform] duration-300 ease-out ${mobileMenuMotion}`}
         aria-hidden={!isMobileMenuOpen}
       >
         {navLinks.map((link) => (
@@ -104,14 +104,6 @@ export const Header: React.FC = () => {
             {link.label}
           </a>
         ))}
-        <Button
-          variant="primary"
-          className="w-full justify-center gap-2"
-          onClick={() => window.open("https://wa.me/5544999999999", "_blank")}
-        >
-          <Phone className="w-4 h-4" />
-          WhatsApp
-        </Button>
       </div>
     </header>
   );
