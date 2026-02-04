@@ -1,29 +1,109 @@
-﻿import React from 'react';
-import { ArrowRight, ShieldCheck, Lightning, Database } from '@phosphor-icons/react';
-import { Button, Container, Badge } from '../ui/Base';
+﻿import React from "react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Lightning,
+  Database,
+} from "@phosphor-icons/react";
+import { Button, Container, Badge } from "../ui/Base";
+
+const HERO_PRODUCTS = [
+  "OnRota",
+  "OnCad",
+  "OnRisk",
+  "OnID",
+  "OnTrack",
+  "OnDeep",
+] as const;
 
 export const Hero: React.FC = () => {
+  const [productIndex, setProductIndex] = React.useState(0);
+  const [typedProduct, setTypedProduct] = React.useState("");
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  React.useEffect(() => {
+    const TYPING_SPEED_MS = 210;
+    const DELETING_SPEED_MS = 140;
+    const PAUSE_AFTER_TYPE_MS = 1200;
+    const PAUSE_AFTER_DELETE_MS = 250;
+
+    const currentProduct =
+      HERO_PRODUCTS[productIndex] ?? HERO_PRODUCTS[0] ?? "";
+    const typedLength = typedProduct.length;
+
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
+    if (!isDeleting) {
+      if (typedLength < currentProduct.length) {
+        timeoutId = setTimeout(() => {
+          setTypedProduct(currentProduct.slice(0, typedLength + 1));
+        }, TYPING_SPEED_MS);
+      } else {
+        timeoutId = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE_MS);
+      }
+    } else {
+      if (typedLength > 0) {
+        timeoutId = setTimeout(() => {
+          setTypedProduct(currentProduct.slice(0, typedLength - 1));
+        }, DELETING_SPEED_MS);
+      } else {
+        timeoutId = setTimeout(() => {
+          setIsDeleting(false);
+          setProductIndex((prev) => (prev + 1) % HERO_PRODUCTS.length);
+        }, PAUSE_AFTER_DELETE_MS);
+      }
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [isDeleting, productIndex, typedProduct]);
+
   return (
     <section className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-center bg-dark">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-7 sm:space-y-9 animate-fade-in-up">
-            <Badge className="bg-white/5 text-brand-primary border-white/10">Segurança Logística 4.0</Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] text-white">
-              Logística com
-              <span className="block text-brand-primary">Inteligência e Segurança</span>
+            <Badge className="relative overflow-hidden bg-white/5 text-white/90 border-white/15 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.07),0_0_35px_rgba(29,167,229,0.22)] px-4 py-1 text-sm before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] before:opacity-50 before:animate-pulse">
+              <span className="relative z-10">
+                Mais segurança, menos riscos:
+              </span>
+            </Badge>
+            <h1 className="font-bold tracking-tighter leading-[1.05] text-white">
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-5xl sm:whitespace-nowrap">
+                O futuro do transporte
+              </span>
+              <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl sm:whitespace-nowrap">
+                é{" "}
+                <span className="inline-flex items-baseline whitespace-nowrap">
+                  <span className="text-brand-primary">{typedProduct}</span>
+                  <span className={typedProduct ? "opacity-50" : "opacity-0"}>
+                    |
+                  </span>
+                </span>
+              </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl">
-              Reduza fraudes, automatize cadastros e valide motoristas em segundos.
-              A plataforma completa para Gerenciadoras de Risco e Transportadoras.
+              Reduza fraudes, automatize cadastros e valide motoristas em
+              segundos. A plataforma completa para Gerenciadoras de Risco e
+              Transportadoras.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2 group" onClick={() => window.location.href = '#contato'}>
+              <Button
+                size="lg"
+                className="gap-2 group"
+                onClick={() => (window.location.href = "#contato")}
+              >
                 Falar com especialista
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="border-white/30" onClick={() => window.location.href = '#solucoes'}>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30"
+                onClick={() => (window.location.href = "#solucoes")}
+              >
                 Ver soluções
               </Button>
             </div>
@@ -53,8 +133,12 @@ export const Hero: React.FC = () => {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-white">Status da Validação</div>
-                      <div className="text-xs text-green-400">Sistema Operacional</div>
+                      <div className="text-sm font-semibold text-white">
+                        Status da Validação
+                      </div>
+                      <div className="text-xs text-green-400">
+                        Sistema Operacional
+                      </div>
                     </div>
                   </div>
                   <div className="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded border border-green-500/20">
@@ -64,7 +148,10 @@ export const Hero: React.FC = () => {
 
                 <div className="space-y-4">
                   {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5">
+                    <div
+                      key={i}
+                      className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5"
+                    >
                       <div className="w-8 h-8 rounded-lg bg-white/10 animate-pulse" />
                       <div className="flex-1 space-y-2">
                         <div className="h-2 w-24 bg-white/20 rounded" />
@@ -76,7 +163,9 @@ export const Hero: React.FC = () => {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
-                  <div className="text-xs text-gray-500">Processando requisições...</div>
+                  <div className="text-xs text-gray-500">
+                    Processando requisições...
+                  </div>
                   <Lightning className="w-4 h-4 text-yellow-400 animate-pulse" />
                 </div>
               </div>
