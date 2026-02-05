@@ -7,9 +7,8 @@ import { Solutions } from "../components/sections/Solutions";
 import { Consulting } from "../components/sections/Consulting";
 import { Benefits } from "../components/sections/Benefits";
 import { Testimonials } from "../components/sections/Testimonials";
-import { Metrics } from "../components/sections/Metrics";
-import { Headquarters } from "../components/sections/Headquarters";
 import { Leadership } from "../components/sections/Leadership";
+import { Headquarters } from "../components/sections/Headquarters";
 import { Contact } from "../components/sections/Contact";
 import { WhatsappLogo } from "@phosphor-icons/react";
 
@@ -24,10 +23,9 @@ const Home: React.FC = () => {
         <Solutions />
         <Consulting />
         <Benefits />
-        <Metrics />
         <Testimonials />
-        <Headquarters />
         <Leadership />
+        <Headquarters />
         <Contact />
       </main>
 

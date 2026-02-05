@@ -1,24 +1,48 @@
-import React from 'react';
-import { Container, SectionHeader, Card } from '../ui/Base';
+import React from "react";
+import { Container } from "../ui/Base";
+
+const TEAM = [
+  {
+    name: "Evelyn Martins",
+    role: "CEO & Founder",
+    bio: "Especialista em gest„o de risco e logÌstica, lidera a inovaÁ„o no setor de transportes com foco em seguranÁa, tecnologia e eficiÍncia.",
+    initials: "EM",
+  },
+];
 
 export const Leadership: React.FC = () => {
   return (
-    <section id="lideranca" className="py-16 sm:py-20 bg-[#0a0a0a]">
-      <Container>
-        <SectionHeader title="Lideran√ßa" />
-        <div className="flex justify-center">
-            <Card className="max-w-md w-full text-center p-6 sm:p-8 border-brand-accent/20">
-                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-brand-primary to-brand-accent rounded-full p-1 mb-6">
-                    <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
-                        <span className="text-4xl text-white font-bold">EM</span>
-                    </div>
+    <section id="lideranca" className="py-16 sm:py-20 bg-dark">
+      <Container className="space-y-8">
+        <div>
+          <p className="text-base text-gray-400">Pessoas</p>
+          <h3 className="text-3xl sm:text-4xl font-semibold text-white">
+            ConheÁa nossa lideranÁa
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {TEAM.map((member) => (
+            <div
+              key={member.name}
+              className="rounded-2xl border border-white/10 bg-[#0b0b0b] p-7"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-14 w-14 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-semibold">
+                  {member.initials}
                 </div>
-                <h3 className="text-2xl font-bold text-white">Evelyn Martins</h3>
-                <p className="text-brand-primary font-medium mb-4">CEO & Founder</p>
-                <p className="text-gray-400 text-sm">
-                    Especialista em gest√£o de risco e log√≠stica, liderando a inova√ß√£o no setor de transportes atrav√©s da tecnologia.
-                </p>
-            </Card>
+                <div>
+                  <p className="text-xl sm:text-2xl font-semibold text-white">
+                    {member.name}
+                  </p>
+                  <p className="text-base text-brand-primary">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+              <p className="text-base text-gray-400">{member.bio}</p>
+            </div>
+          ))}
         </div>
       </Container>
     </section>
