@@ -1,15 +1,6 @@
 ﻿import React from "react";
-import {
-  ArrowRight,
-  CheckCircle,
-  Eye,
-  Heart,
-  Lightning,
-  Shield,
-  Target,
-  TrendUp,
-} from "@phosphor-icons/react";
-import { Button, Container } from "../ui/Base";
+import { Eye, Heart, Target } from "@phosphor-icons/react";
+import { Container } from "../ui/Base";
 
 const JOURNEY_STEPS = [
   {
@@ -38,27 +29,6 @@ const JOURNEY_STEPS = [
   },
 ];
 
-const PILLARS = [
-  {
-    icon: <Shield className="w-9 h-9 text-brand-primary" />,
-    title: "Segurança",
-    description:
-      "Proteção de dados e validação rigorosa para minimizar riscos em cada operação.",
-  },
-  {
-    icon: <Lightning className="w-9 h-9 text-yellow-400" />,
-    title: "Inovação",
-    description:
-      "Tecnologia de ponta e atualização constante para estar à frente do mercado.",
-  },
-  {
-    icon: <TrendUp className="w-9 h-9 text-green-400" />,
-    title: "Eficiência",
-    description:
-      "Processos ágeis que economizam tempo e recursos da sua transportadora.",
-  },
-];
-
 const VALUES = [
   "Integridade",
   "Precisão",
@@ -67,33 +37,54 @@ const VALUES = [
   "Colaboração",
 ];
 
-const CTA_FEATURES = [
-  "Cadastro inteligente e validação em segundos",
-  "Monitoramento contínuo contra fraudes",
-  "Integrações com TMS e ERPs líderes do mercado",
+const MVV_CARDS = [
+  {
+    number: "01",
+    title: "Missão",
+    icon: <Target className="w-6 h-6 text-white" />,
+    description:
+      "Transformar a logística através da tecnologia, garantindo segurança e agilidade para transportadoras e motoristas em todo o Brasil.",
+  },
+  {
+    number: "02",
+    title: "Visão",
+    icon: <Eye className="w-6 h-6 text-white" />,
+    description:
+      "Ser a referência nacional em inteligência logística e prevenção de fraudes, conectando o setor com soluções digitais inovadoras.",
+  },
+  {
+    number: "03",
+    title: "Valores",
+    icon: <Heart className="w-6 h-6 text-white" />,
+  },
 ];
 
 export const WhoWeAre: React.FC = () => {
   return (
     <section
       id="quem-somos"
-      className="relative bg-black py-20 sm:py-28 overflow-hidden"
+      className="relative bg-black py-20 sm:py-24 lg:py-28 overflow-hidden"
     >
 
-      <Container className="relative z-10 space-y-20 sm:space-y-24">
+      <Container className="relative z-10 space-y-16 sm:space-y-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
-          <div className="space-y-7">
-            <p className="text-base text-brand-primary">[Como funciona]</p>
+          <div className="space-y-5">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
-              Nossa jornada rumo à excelência tecnológica
+              Quem Somos
             </h2>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Mais do que uma plataforma, somos parceiros estratégicos para o
+              sucesso da sua operação logística.
+            </p>
           </div>
 
           <div className="space-y-8">
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-              Na OnRota, somos especializados em soluções de inteligência
-              logística que reduzem riscos, automatizam cadastros e dão
-              visibilidade total para transportadoras e GRs.
+              A <span className="text-brand-primary font-semibold">OnRota</span>{" "}
+              nasceu para revolucionar a gestão de risco no transporte.
+              Combinamos inteligência de dados, automação e um profundo
+              conhecimento do setor para entregar soluções que protegem sua
+              carga e aceleram seus processos.
             </p>
 
             <div className="space-y-7">
@@ -115,94 +106,49 @@ export const WhoWeAre: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div className="space-y-12">
-          <div className="max-w-4xl mx-auto text-center space-y-5">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
-              Quem Somos
-            </h3>
-            <p className="text-lg sm:text-xl text-gray-300">
-              Mais do que uma plataforma, somos parceiros estratégicos para o
-              sucesso da sua operação logística.
-            </p>
-            <div className="h-0.5 w-16 bg-brand-primary mx-auto" />
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              A <span className="text-brand-primary font-semibold">OnRota</span>{" "}
-              nasceu para revolucionar a gestão de risco no transporte.
-              Combinamos inteligência de dados, automação e um profundo
-              conhecimento do setor para entregar soluções que protegem sua
-              carga e aceleram seus processos.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PILLARS.map((pillar) => (
+        <div className="relative py-4 sm:py-6">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {MVV_CARDS.map((card) => (
               <div
-                key={pillar.title}
-                className="rounded-3xl border border-white/10 bg-[#0b0b0b] p-8 text-center shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
+                key={card.title}
+                className="group relative flex flex-col h-full bg-[#080808] border border-white/5 hover:border-white/20 transition duration-700 ease-out p-6 sm:p-7 rounded-2xl overflow-hidden transform-gpu hover:-translate-y-1"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6">
-                  {pillar.icon}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                <div className="flex justify-between items-start mb-7 relative z-10">
+                  <div className="w-11 h-11 rounded-xl bg-white/5 text-white flex items-center justify-center group-hover:text-white group-hover:bg-white/10 transition-all duration-500">
+                    {card.icon}
+                  </div>
+                  <span className="font-mono text-3xl text-white/10 group-hover:text-white/25 transition-colors duration-500 font-light select-none">
+                    {card.number}
+                  </span>
                 </div>
-                <h4 className="text-xl font-semibold text-white mb-3">
-                  {pillar.title}
-                </h4>
-                <p className="text-base text-gray-400">{pillar.description}</p>
+
+                <div className="relative z-10 flex-grow">
+                  <h3 className="text-sm sm:text-base tracking-[0.32em] text-white/85 uppercase mb-4">
+                    {card.title}
+                  </h3>
+                  {card.description ? (
+                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                      {card.description}
+                    </p>
+                  ) : (
+                    <ul className="space-y-2 text-sm sm:text-base text-slate-300">
+                      {VALUES.map((value) => (
+                        <li key={value} className="flex items-center gap-3">
+                          <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                          <span>{value}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-white/0 via-white/40 to-white/70 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left ease-out" />
               </div>
             ))}
           </div>
         </div>
-
-        <div className="space-y-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-brand-primary/15 to-transparent p-8 sm:p-10 rounded-3xl border border-brand-primary/20">
-              <div className="flex items-center gap-4 mb-5">
-                <Target className="w-9 h-9 text-brand-primary" />
-                <h3 className="text-2xl sm:text-3xl font-semibold text-white">
-                  Missão
-                </h3>
-              </div>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Transformar a logística através da tecnologia, garantindo
-                segurança e agilidade para transportadoras e motoristas em todo
-                o Brasil.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-brand-accent/15 to-transparent p-8 sm:p-10 rounded-3xl border border-brand-accent/20">
-              <div className="flex items-center gap-4 mb-5">
-                <Eye className="w-9 h-9 text-brand-accent" />
-                <h3 className="text-2xl sm:text-3xl font-semibold text-white">
-                  Visão
-                </h3>
-              </div>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Ser a referência nacional em inteligência logística e prevenção
-                de fraudes, conectando o setor com soluções digitais inovadoras.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <Heart className="w-6 h-6 text-red-500" />
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white">
-                Nossos Valores
-              </h3>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              {VALUES.map((value) => (
-                <span
-                  key={value}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm sm:text-base font-medium text-gray-200"
-                >
-                  {value}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
       </Container>
     </section>
   );
