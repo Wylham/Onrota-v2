@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { List, X, Phone } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 import { Button, Container } from "../ui/Base";
 
 export const Header: React.FC = () => {
@@ -15,11 +16,11 @@ export const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: "Quem Somos", href: "#quem-somos" },
-    { label: "Soluções", href: "#solucoes" },
-    { label: "Consultoria", href: "#consultoria" },
-    { label: "Benefícios", href: "#beneficios" },
-    { label: "Contato", href: "#contato" },
+    { label: "Quem Somos", to: "/quem-somos" },
+    { label: "Soluções", to: "/#solucoes" },
+    { label: "Consultoria", to: "/#consultoria" },
+    { label: "Benefícios", to: "/#beneficios" },
+    { label: "Contato", to: "/#contato" },
   ];
   const glassBase = isScrolled
     ? "bg-black/60 backdrop-blur-2xl"
@@ -39,24 +40,24 @@ export const Header: React.FC = () => {
       <Container>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src="/logo/Ativo-25-SF.webp"
               alt="OnRota"
               className="h-8 w-auto object-contain md:h-10"
             />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:scale-105 transform"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -95,16 +96,17 @@ export const Header: React.FC = () => {
         aria-hidden={!isMobileMenuOpen}
       >
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.label}
-            href={link.href}
+            to={link.to}
             className="text-gray-300 hover:text-white py-2 px-4 rounded-lg hover:bg-white/5"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
     </header>
   );
 };
+

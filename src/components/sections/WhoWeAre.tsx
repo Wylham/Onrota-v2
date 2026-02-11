@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { Container } from "../ui/Base";
+import { Button, Container } from "../ui/Base";
 
 const JOURNEY_STEPS = [
   {
@@ -29,43 +29,53 @@ const JOURNEY_STEPS = [
 ];
 
 const VALUES = [
-  "Integridade",
-  "Precisão",
-  "Inovação",
-  "Responsabilidade",
-  "Colaboração",
+  { title: "Integridade", description: "Atuamos com transparência em cada interação." },
+  { title: "Precisão", description: "Perseguimos exatidão nos dados e processos." },
+  { title: "Inovação Contínua", description: "Simplificamos o complexo constantemente." },
+  { title: "Responsabilidade", description: "Compromisso com clientes, parceiros e motoristas." },
+  { title: "Colaboração", description: "Fortalecemos toda a cadeia logística." },
 ];
 
 const MVV_ITEMS = [
   {
     number: "01",
     tag: "Missão",
-    title: "Transformando a gestão de risco com",
-    highlight: "soluções inteligentes",
+    title: "Promover confiança no transporte brasileiro",
+    highlight: "antecipando riscos e evitando fraudes",
     description:
-      "Garantir que cada viagem seja segura, ágil e confiável, combinando tecnologia, dados e proximidade com quem opera a logística todos os dias.",
+      "Tecnologia que dá visibilidade de ponta a ponta, transforma dados em decisões seguras, automatiza verificações críticas e reduz o impacto de erros humanos nas operações diárias.",
     side: "right",
   },
   {
     number: "02",
     tag: "Visão",
-    title: "Ser a referência nacional em",
-    highlight: "inteligência logística",
+    title: "Ser referência em antifraude e automação no transporte rodoviário",
+    highlight: "definindo o novo padrão de segurança e simplicidade",
     description:
-      "Unificar transportadoras, embarcadores e motoristas em uma jornada digital que reduz fraudes, acelera decisões e mantém as operações sempre em movimento.",
+      "Enxergamos um ecossistema em que cada etapa — da contratação à entrega — é validada, rastreada e mensurada.",
     side: "left",
   },
   {
     number: "03",
     tag: "Valores",
-    title: "Vivemos princípios que sustentam cada entrega",
+    title: "Nossos valores guiam cada decisão",
     highlight: "todos os dias",
     description:
-      "Nossa cultura coloca pessoas, segurança e transparência no centro das escolhas.",
+      "Princípios que mantêm pessoas, segurança e transparência no centro das escolhas.",
     values: VALUES,
     side: "right",
   },
 ];
+
+const BLOG_TEASER = {
+  tag: "Blog • Em breve",
+  title: "Conteúdos exclusivos sobre gestão de risco e logística",
+  description:
+    "Estamos preparando artigos, cases e entrevistas com especialistas para compartilhar aprendizados reais do dia a dia na estrada.",
+  topics: ["Boas práticas", "Tecnologia", "Mercado", "OnRota Inside"],
+  nextUp:
+    "Hub de conteúdo com biblioteca de artigos, cases e newsletter. Avise sua equipe: o primeiro post chegará em breve!",
+};
 
 const BACKGROUND_LAYERS =
   "linear-gradient(90deg, #05060a 0%, #040508 40%, #020203 100%)," +
@@ -74,10 +84,10 @@ const BACKGROUND_LAYERS =
   "radial-gradient(circle at 78% 42%, rgba(0,150,255,0.14), transparent 46%)," +
   "radial-gradient(circle at 24% 65%, rgba(0,120,220,0.08), transparent 52%)";
 
-export const WhoWeAre: React.FC = () => {
+export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({ withId = true }) => {
   return (
     <section
-      id="quem-somos"
+      id={withId ? "quem-somos" : undefined}
       className="relative bg-black py-20 sm:py-24 lg:py-28 overflow-hidden"
     >
       <Container className="relative z-10 space-y-16 sm:space-y-20">
@@ -121,68 +131,119 @@ export const WhoWeAre: React.FC = () => {
           </div>
         </div>
       </Container>
+    </section>
+  );
+};
 
-      <div className="relative z-0 mt-16 sm:mt-20">
-        <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden bg-[#02040a]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: BACKGROUND_LAYERS,
-              backgroundSize: "200% 200%",
-              backgroundPosition: "60% 38%",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/70" />
+export const MVVSection: React.FC = () => {
+  return (
+    <section className="relative bg-black pb-20 sm:pb-24 lg:pb-28">
+      <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden bg-[#02040a]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: BACKGROUND_LAYERS,
+            backgroundSize: "200% 200%",
+            backgroundPosition: "60% 38%",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/70" />
 
-          <div className="relative space-y-12 sm:space-y-14 lg:space-y-16 py-4 sm:py-6">
-            {MVV_ITEMS.map((item) => (
-              <Container key={item.tag} className="relative">
-                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px] py-10 sm:py-12 lg:py-14">
-                  <div
-                    className={`relative hidden lg:flex items-start ${
-                      item.side === "left" ? "lg:col-start-2" : "lg:col-start-1"
-                    }`}
+        <div className="relative space-y-12 sm:space-y-14 lg:space-y-16 py-8 sm:py-12 lg:py-16">
+          {MVV_ITEMS.map((item) => (
+            <Container key={item.tag} className="relative">
+              <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px] py-10 sm:py-12 lg:py-14">
+                <div
+                  className={`relative hidden lg:flex items-start ${
+                    item.side === "left" ? "lg:col-start-2" : "lg:col-start-1"
+                  }`}
+                >
+                  <span
+                    className={`absolute top-10 ${
+                      item.side === "right" ? "left-12" : "right-12"
+                    } text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight`}
                   >
-                    <span
-                      className={`absolute top-10 ${
-                        item.side === "right" ? "left-12" : "right-12"
-                      } text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight`}
-                    >
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  <div
-                    className={`copy relative flex flex-col justify-center space-y-5 ${
-                      item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
-                    }`}
-                  >
-                    <h4 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
-                      {item.title} <span className="text-brand-primary">{item.highlight}</span>
-                    </h4>
-
-                    <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
-                      {item.description}
-                    </p>
-
-                    {item.values ? (
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-gray-100">
-                        {item.values.map((value) => (
-                          <li key={value} className="flex items-center gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/70" />
-                            <span>{value}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </div>
+                    {item.tag}
+                  </span>
                 </div>
-              </Container>
-            ))}
-          </div>
+
+                <div
+                  className={`copy relative flex flex-col justify-center space-y-5 ${
+                    item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
+                  }`}
+                >
+                  <h4 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
+                    {item.title} <span className="text-brand-primary">{item.highlight}</span>
+                  </h4>
+
+                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
+                    {item.description}
+                  </p>
+
+                  {item.values ? (
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base text-gray-100">
+                      {item.values.map((value) => (
+                        <li key={value.title} className="flex flex-col gap-1 border border-white/5 rounded-lg p-3 bg-white/5">
+                          <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/80" />
+                            <span className="font-semibold text-white">{value.title}</span>
+                          </div>
+                          <span className="text-gray-300 text-sm leading-relaxed">{value.description}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              </div>
+            </Container>
+          ))}
+
+          <Container className="relative">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 p-8 sm:p-10 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_24px_70px_rgba(0,0,0,0.45)]">
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-brand-primary/80">
+                  {BLOG_TEASER.tag}
+                </p>
+                <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug">
+                  {BLOG_TEASER.title}
+                </h3>
+                <p className="text-base text-gray-200 leading-relaxed">
+                  {BLOG_TEASER.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {BLOG_TEASER.topics.map((topic) => (
+                    <span
+                      key={topic}
+                      className="px-3 py-1 rounded-full bg-white/10 text-sm text-gray-100 border border-white/10"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-black/35 border border-white/10 rounded-xl p-6 flex flex-col gap-4">
+                <div className="text-sm uppercase tracking-[0.18em] text-brand-primary/70">
+                  Em breve
+                </div>
+                <div className="text-lg font-semibold text-white">Primeira postagem do blog</div>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  {BLOG_TEASER.nextUp}
+                </p>
+                <Button variant="outline" size="sm" disabled className="self-start">
+                  Ver blog (em breve)
+                </Button>
+              </div>
+            </div>
+          </Container>
         </div>
       </div>
     </section>
   );
 };
+
+export const WhoWeAre: React.FC = () => {
+  return <WhoWeAreIntro />;
+};
+

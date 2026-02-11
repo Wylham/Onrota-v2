@@ -1,5 +1,6 @@
-import React from 'react';
-import { Container } from '../ui/Base';
+﻿import React from "react";
+import { Link } from "react-router-dom";
+import { Container } from "../ui/Base";
 
 export const Footer: React.FC = () => {
   return (
@@ -7,40 +8,82 @@ export const Footer: React.FC = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-             <div className="flex items-center mb-4">
-                <a
-                  href="#"
-                  aria-label="Ir para o início"
-                  className="inline-flex items-center"
-                >
-                  <img
-                    src="/logo/Ativo-25-SF.webp"
-                    alt="OnRota"
-                    className="h-10 w-auto object-contain sm:h-12"
-                  />
-                </a>
+            <div className="flex items-center mb-4">
+              <Link
+                to="/"
+                aria-label="Ir para o início"
+                className="inline-flex items-center"
+              >
+                <img
+                  src="/logo/Ativo-25-SF.webp"
+                  alt="OnRota"
+                  className="h-10 w-auto object-contain sm:h-12"
+                />
+              </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Inovação e segurança para o transporte rodoviário de cargas. 
+              Inovação e segurança para o transporte rodoviário de cargas.
               Tecnologia de ponta para gestão de risco e logística eficiente.
             </p>
           </div>
-          
+
           <div>
             <h4 className="text-white font-semibold mb-4">Navegação</h4>
             <ul className="space-y-2">
-              <li><a href="#solucoes" className="text-gray-400 hover:text-brand-primary text-sm transition-colors">Soluções</a></li>
-              <li><a href="#consultoria" className="text-gray-400 hover:text-brand-primary text-sm transition-colors">Consultoria</a></li>
-              <li><a href="#beneficios" className="text-gray-400 hover:text-brand-primary text-sm transition-colors">Benefícios</a></li>
-              <li><a href="#contato" className="text-gray-400 hover:text-brand-primary text-sm transition-colors">Contato</a></li>
+              <li>
+                <Link
+                  to="/#solucoes"
+                  className="text-gray-400 hover:text-brand-primary text-sm transition-colors"
+                >
+                  Soluções
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#consultoria"
+                  className="text-gray-400 hover:text-brand-primary text-sm transition-colors"
+                >
+                  Consultoria
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#beneficios"
+                  className="text-gray-400 hover:text-brand-primary text-sm transition-colors"
+                >
+                  Benefícios
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#contato"
+                  className="text-gray-400 hover:text-brand-primary text-sm transition-colors"
+                >
+                  Contato
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-brand-primary text-sm transition-colors">Política de Privacidade</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-primary text-sm transition-colors">Termos de Uso</a></li>
+              <li>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-brand-primary text-sm transition-colors"
+                >
+                  Política de Privacidade
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-brand-primary text-sm transition-colors"
+                >
+                  Termos de Uso
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -57,3 +100,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

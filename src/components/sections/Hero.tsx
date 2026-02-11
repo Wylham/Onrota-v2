@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center sm:bg-right"
           style={{ backgroundImage: "url(/img/onrotaliquid.png)" }}
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/35 to-black/85" />
       </div>
       <Container className="relative z-10">

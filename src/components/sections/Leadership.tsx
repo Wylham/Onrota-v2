@@ -1,11 +1,11 @@
-import React from "react";
+ï»¿import React from "react";
 import { Container } from "../ui/Base";
 
 const TEAM = [
   {
     name: "Evelyn Martins",
     role: "CEO & Founder",
-    bio: "Especialista em gestão de risco e logística, lidera a inovação no setor de transportes com foco em segurança, tecnologia e eficiência.",
+    bio: "Especialista em gestÃ£o de risco e logÃ­stica, lidera a inovaÃ§Ã£o no setor de transportes com foco em seguranÃ§a, tecnologia e eficiÃªncia.",
     initials: "EM",
   },
 ];
@@ -17,7 +17,7 @@ export const Leadership: React.FC = () => {
         <div>
           <p className="text-base text-gray-400">Pessoas</p>
           <h3 className="text-3xl sm:text-4xl font-semibold text-white">
-            Conheça nossa liderança
+            ConheÃ§a nossa lideranÃ§a
           </h3>
         </div>
 
@@ -48,3 +48,4 @@ export const Leadership: React.FC = () => {
     </section>
   );
 };
+
