@@ -68,10 +68,10 @@ const MVV_ITEMS = [
 ];
 
 const BACKGROUND_LAYERS =
-  "radial-gradient(circle at 15% 30%, rgba(29,167,229,0.16), transparent 32%)," +
-  "radial-gradient(circle at 82% 72%, rgba(29,167,229,0.12), transparent 38%)," +
-  "repeating-linear-gradient(-12deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 120px)," +
-  "linear-gradient(90deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35))";
+  "linear-gradient(180deg, #02040a 0%, #01030a 55%, #02040a 100%)," +
+  "radial-gradient(circle at 18% 26%, rgba(29,167,229,0.22), transparent 44%)," +
+  "radial-gradient(circle at 82% 38%, rgba(29,167,229,0.18), transparent 50%)," +
+  "repeating-linear-gradient(-11deg, rgba(90,170,255,0.78) 0 1px, transparent 1px 70px)";
 
 export const WhoWeAre: React.FC = () => {
   return (
@@ -119,60 +119,69 @@ export const WhoWeAre: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div className="space-y-10 sm:space-y-12 lg:space-y-14">
-          {MVV_ITEMS.map((item) => (
-            <div
-              key={item.tag}
-              className="relative overflow-hidden bg-[#040508]"
-              style={{ backgroundImage: BACKGROUND_LAYERS, backgroundSize: "cover", backgroundPosition: "center" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black/15" />
-
-              <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[360px]">
-                <div
-                  className={`relative hidden lg:flex items-start ${
-                    item.side === "left" ? "lg:col-start-2" : "lg:col-start-1"
-                  }`}
-                >
-                  <span
-                    className={`absolute top-10 ${
-                      item.side === "right" ? "left-10" : "right-10"
-                    } text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight`}
-                  >
-                    {item.tag}
-                  </span>
-                </div>
-
-                <div
-                  className={`copy relative px-8 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 flex flex-col justify-center space-y-5 ${
-                    item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
-                  }`}
-                >
-                  <h4 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
-                    {item.title} <span className="text-brand-primary">{item.highlight}</span>
-                  </h4>
-
-                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
-                    {item.description}
-                  </p>
-
-                  {item.values ? (
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-gray-100">
-                      {item.values.map((value) => (
-                        <li key={value} className="flex items-center gap-3">
-                          <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/70" />
-                          <span>{value}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </Container>
+
+      <div className="relative z-0 mt-16 sm:mt-20">
+        <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden bg-[#02040a]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: BACKGROUND_LAYERS,
+              backgroundSize: "240% 220%",
+              backgroundPosition: "50% 35%",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+
+          <div className="relative space-y-12 sm:space-y-14 lg:space-y-16 py-4 sm:py-6">
+            {MVV_ITEMS.map((item) => (
+              <Container key={item.tag} className="relative">
+                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px] py-10 sm:py-12 lg:py-14">
+                  <div
+                    className={`relative hidden lg:flex items-start ${
+                      item.side === "left" ? "lg:col-start-2" : "lg:col-start-1"
+                    }`}
+                  >
+                    <span
+                      className={`absolute top-10 ${
+                        item.side === "right" ? "left-12" : "right-12"
+                      } text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight`}
+                    >
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <div
+                    className={`copy relative flex flex-col justify-center space-y-5 ${
+                      item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
+                    }`}
+                  >
+                    <h4 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
+                      {item.title} <span className="text-brand-primary">{item.highlight}</span>
+                    </h4>
+
+                    <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
+                      {item.description}
+                    </p>
+
+                    {item.values ? (
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-gray-100">
+                        {item.values.map((value) => (
+                          <li key={value} className="flex items-center gap-3">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/70" />
+                            <span>{value}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </div>
+              </Container>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
