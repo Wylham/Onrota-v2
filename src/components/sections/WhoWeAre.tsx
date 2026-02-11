@@ -29,11 +29,26 @@ const JOURNEY_STEPS = [
 ];
 
 const VALUES = [
-  { title: "Integridade", description: "Atuamos com transparência em cada interação." },
-  { title: "Precisão", description: "Perseguimos exatidão nos dados e processos." },
-  { title: "Inovação Contínua", description: "Simplificamos o complexo constantemente." },
-  { title: "Responsabilidade", description: "Compromisso com clientes, parceiros e motoristas." },
-  { title: "Colaboração", description: "Fortalecemos toda a cadeia logística." },
+  {
+    title: "Integridade",
+    description: "Atuamos com transparência em cada interação.",
+  },
+  {
+    title: "Precisão",
+    description: "Perseguimos exatidão nos dados e processos.",
+  },
+  {
+    title: "Inovação Contínua",
+    description: "Simplificamos o complexo constantemente.",
+  },
+  {
+    title: "Responsabilidade",
+    description: "Compromisso com clientes, parceiros e motoristas.",
+  },
+  {
+    title: "Colaboração",
+    description: "Fortalecemos toda a cadeia logística.",
+  },
 ];
 
 const MVV_ITEMS = [
@@ -52,7 +67,7 @@ const MVV_ITEMS = [
     title: "Ser referência em antifraude e automação no transporte rodoviário",
     highlight: "definindo o novo padrão de segurança e simplicidade",
     description:
-      "Enxergamos um ecossistema em que cada etapa — da contratação à entrega — é validada, rastreada e mensurada.",
+      "Enxergamos um ecossistema em que cada etapa da contratação à entrega é validada, rastreada e mensurada.",
     side: "left",
   },
   {
@@ -78,21 +93,20 @@ const BLOG_TEASER = {
 };
 
 const BACKGROUND_LAYERS =
-  "linear-gradient(90deg, #05060a 0%, #040508 40%, #020203 100%)," +
-  "repeating-linear-gradient(-9deg, rgba(0,130,220,0.22) 0 1px, transparent 1px 95px)," +
-  "repeating-linear-gradient(-9deg, rgba(0,90,180,0.12) 0 1px, transparent 1px 135px)," +
-  "radial-gradient(circle at 78% 42%, rgba(0,150,255,0.14), transparent 46%)," +
-  "radial-gradient(circle at 24% 65%, rgba(0,120,220,0.08), transparent 52%)";
+  // base horizontal gradient: azul bem discreto nas bordas para preto sólido no centro
+  "linear-gradient(90deg, #050912 0%, #040814 18%, #02040c 40%, #010207 64%, #000105 100%)";
 
-export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({ withId = true }) => {
+export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({
+  withId = true,
+}) => {
   return (
     <section
       id={withId ? "quem-somos" : undefined}
-      className="relative bg-black py-20 sm:py-24 lg:py-28 overflow-hidden"
+      className="relative bg-black pt-24 sm:pt-28 pb-20 sm:pb-24 lg:pb-28 overflow-hidden"
     >
-      <Container className="relative z-10 space-y-16 sm:space-y-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
-          <div className="space-y-5">
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
+          <div className="space-y-8 sm:space-y-10">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
               Quem Somos
             </h2>
@@ -102,7 +116,7 @@ export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({ withId = true })
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-10 sm:space-y-12">
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
               A <span className="text-brand-primary font-semibold">OnRota</span>{" "}
               nasceu para revolucionar a gestão de risco no transporte.
@@ -111,7 +125,7 @@ export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({ withId = true })
               carga e aceleram seus processos.
             </p>
 
-            <div className="space-y-7">
+            <div className="space-y-9 sm:space-y-10">
               {JOURNEY_STEPS.map((step) => (
                 <div key={step.number} className="flex items-start gap-4">
                   <span className="text-base font-semibold text-brand-primary">
@@ -131,26 +145,30 @@ export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({ withId = true })
           </div>
         </div>
       </Container>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/35 to-black/85" />
     </section>
   );
 };
 
 export const MVVSection: React.FC = () => {
   return (
-    <section className="relative bg-black pb-20 sm:pb-24 lg:pb-28">
-      <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden bg-[#02040a]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: BACKGROUND_LAYERS,
-            backgroundSize: "200% 200%",
-            backgroundPosition: "60% 38%",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/70" />
+    <section
+      className="relative isolate overflow-hidden pb-20 sm:pb-24 lg:pb-28"
+      style={{
+        backgroundColor: "#01030a",
+        backgroundImage: BACKGROUND_LAYERS,
+        backgroundSize: "100% 100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* fade de transição a partir da seção anterior */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 sm:h-28 bg-gradient-to-b from-black via-black/70 to-transparent" />
+      {/* vinheta leve para leitura */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/12 via-black/26 to-black/42" />
 
-        <div className="relative space-y-12 sm:space-y-14 lg:space-y-16 py-8 sm:py-12 lg:py-16">
+      <div className="relative z-10 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
+        <div className="space-y-12 sm:space-y-14 lg:space-y-16 py-8 sm:py-12 lg:py-16">
           {MVV_ITEMS.map((item) => (
             <Container key={item.tag} className="relative">
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px] py-10 sm:py-12 lg:py-14">
@@ -173,8 +191,13 @@ export const MVVSection: React.FC = () => {
                     item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
                   }`}
                 >
-                  <h4 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
-                    {item.title} <span className="text-brand-primary">{item.highlight}</span>
+                  <h4
+                    className={`text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight ${
+                      item.side === "left" ? "lg:pr-6" : "lg:pl-6"
+                    }`}
+                  >
+                    {item.title}{" "}
+                    <span className="text-brand-primary">{item.highlight}</span>
                   </h4>
 
                   <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
@@ -184,12 +207,19 @@ export const MVVSection: React.FC = () => {
                   {item.values ? (
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base text-gray-100">
                       {item.values.map((value) => (
-                        <li key={value.title} className="flex flex-col gap-1 border border-white/5 rounded-lg p-3 bg-white/5">
+                        <li
+                          key={value.title}
+                          className="flex flex-col gap-1 border border-white/5 rounded-lg p-3 bg-white/5"
+                        >
                           <div className="flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/80" />
-                            <span className="font-semibold text-white">{value.title}</span>
+                            <span className="font-semibold text-white">
+                              {value.title}
+                            </span>
                           </div>
-                          <span className="text-gray-300 text-sm leading-relaxed">{value.description}</span>
+                          <span className="text-gray-300 text-sm leading-relaxed">
+                            {value.description}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -227,11 +257,18 @@ export const MVVSection: React.FC = () => {
                 <div className="text-sm uppercase tracking-[0.18em] text-brand-primary/70">
                   Em breve
                 </div>
-                <div className="text-lg font-semibold text-white">Primeira postagem do blog</div>
+                <div className="text-lg font-semibold text-white">
+                  Primeira postagem do blog
+                </div>
                 <p className="text-sm text-gray-300 leading-relaxed">
                   {BLOG_TEASER.nextUp}
                 </p>
-                <Button variant="outline" size="sm" disabled className="self-start">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled
+                  className="self-start"
+                >
                   Ver blog (em breve)
                 </Button>
               </div>
@@ -246,4 +283,3 @@ export const MVVSection: React.FC = () => {
 export const WhoWeAre: React.FC = () => {
   return <WhoWeAreIntro />;
 };
-
