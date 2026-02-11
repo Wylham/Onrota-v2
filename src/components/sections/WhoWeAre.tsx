@@ -1,5 +1,4 @@
 ﻿import React from "react";
-import { Eye, Heart, Target } from "@phosphor-icons/react";
 import { Container } from "../ui/Base";
 
 const JOURNEY_STEPS = [
@@ -37,27 +36,42 @@ const VALUES = [
   "Colaboração",
 ];
 
-const MVV_CARDS = [
+const MVV_ITEMS = [
   {
     number: "01",
-    title: "Missão",
-    icon: <Target className="w-6 h-6 text-white" />,
+    tag: "Missão",
+    title: "Transformando a gestão de risco com",
+    highlight: "soluções inteligentes",
     description:
-      "Transformar a logística através da tecnologia, garantindo segurança e agilidade para transportadoras e motoristas em todo o Brasil.",
+      "Garantir que cada viagem seja segura, ágil e confiável, combinando tecnologia, dados e proximidade com quem opera a logística todos os dias.",
+    side: "right",
   },
   {
     number: "02",
-    title: "Visão",
-    icon: <Eye className="w-6 h-6 text-white" />,
+    tag: "Visão",
+    title: "Ser a referência nacional em",
+    highlight: "inteligência logística",
     description:
-      "Ser a referência nacional em inteligência logística e prevenção de fraudes, conectando o setor com soluções digitais inovadoras.",
+      "Unificar transportadoras, embarcadores e motoristas em uma jornada digital que reduz fraudes, acelera decisões e mantém as operações sempre em movimento.",
+    side: "left",
   },
   {
     number: "03",
-    title: "Valores",
-    icon: <Heart className="w-6 h-6 text-white" />,
+    tag: "Valores",
+    title: "Vivemos princípios que sustentam cada entrega",
+    highlight: "todos os dias",
+    description:
+      "Nossa cultura coloca pessoas, segurança e transparência no centro das escolhas.",
+    values: VALUES,
+    side: "right",
   },
 ];
+
+const BACKGROUND_LAYERS =
+  "radial-gradient(circle at 15% 30%, rgba(29,167,229,0.16), transparent 32%)," +
+  "radial-gradient(circle at 82% 72%, rgba(29,167,229,0.12), transparent 38%)," +
+  "repeating-linear-gradient(-12deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 120px)," +
+  "linear-gradient(90deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35))";
 
 export const WhoWeAre: React.FC = () => {
   return (
@@ -65,7 +79,6 @@ export const WhoWeAre: React.FC = () => {
       id="quem-somos"
       className="relative bg-black py-20 sm:py-24 lg:py-28 overflow-hidden"
     >
-
       <Container className="relative z-10 space-y-16 sm:space-y-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
           <div className="space-y-5">
@@ -106,48 +119,66 @@ export const WhoWeAre: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="relative py-4 sm:py-6">
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {MVV_CARDS.map((card) => (
-              <div
-                key={card.title}
-                className="group relative flex flex-col h-full bg-[#080808] border border-white/5 hover:border-white/20 transition duration-700 ease-out p-6 sm:p-7 rounded-2xl overflow-hidden transform-gpu hover:-translate-y-1"
-              >
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                <div className="flex justify-between items-start mb-7 relative z-10">
-                  <div className="w-11 h-11 rounded-xl bg-white/5 text-white flex items-center justify-center group-hover:text-white group-hover:bg-white/10 transition-all duration-500">
-                    {card.icon}
-                  </div>
-                  <span className="font-mono text-3xl text-white/10 group-hover:text-white/25 transition-colors duration-500 font-light select-none">
-                    {card.number}
+        <div className="space-y-10 sm:space-y-12 lg:space-y-14">
+          {MVV_ITEMS.map((item) => (
+            <div
+              key={item.tag}
+              className="relative overflow-hidden bg-[#040508]"
+              style={{ backgroundImage: BACKGROUND_LAYERS, backgroundSize: "cover", backgroundPosition: "center" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black/15" />
+
+              <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[360px]">
+                <div
+                  className={`relative hidden lg:block ${
+                    item.side === "left" ? "lg:col-start-2" : "lg:col-start-1"
+                  }`}
+                >
+                  <span
+                    className={`absolute top-10 text-xs tracking-[0.32em] uppercase font-semibold text-brand-primary ${
+                      item.side === "right" ? "left-10" : "right-10"
+                    }`}
+                  >
+                    [ {item.tag} ]
                   </span>
                 </div>
 
-                <div className="relative z-10 flex-grow">
-                  <h3 className="text-sm sm:text-base tracking-[0.32em] text-white/85 uppercase mb-4">
-                    {card.title}
+                <div
+                  className={`copy relative px-8 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 flex flex-col justify-center space-y-5 ${
+                    item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
+                  }`}
+                >
+                  <div className="flex items-center gap-3 text-white/40 font-mono text-sm">
+                    <span>{item.number}</span>
+                    <span className="h-px w-10 bg-white/20" />
+                    <span className="uppercase tracking-[0.28em] text-[11px] text-brand-primary">
+                      [ {item.tag} ]
+                    </span>
+                  </div>
+
+                  <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
+                    {item.title} <span className="text-brand-primary">{item.highlight}</span>
                   </h3>
-                  {card.description ? (
-                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                      {card.description}
-                    </p>
-                  ) : (
-                    <ul className="space-y-2 text-sm sm:text-base text-slate-300">
-                      {VALUES.map((value) => (
+
+                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
+                    {item.description}
+                  </p>
+
+                  {item.values ? (
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-gray-100">
+                      {item.values.map((value) => (
                         <li key={value} className="flex items-center gap-3">
-                          <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/70" />
                           <span>{value}</span>
                         </li>
                       ))}
                     </ul>
-                  )}
+                  ) : null}
                 </div>
-
-                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-white/0 via-white/40 to-white/70 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left ease-out" />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </Container>
     </section>
