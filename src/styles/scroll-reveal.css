@@ -18,3 +18,33 @@
     transition: none !important;
   }
 }
+
+/* Hero logo marquee */
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.logo-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.75rem, 3vw, 3.25rem);
+  min-width: max-content;
+  padding-block: 0.25rem;
+  will-change: transform;
+}
+
+.logo-marquee__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.5rem;
+}
+
+.logo-marquee:hover .logo-marquee__track,
+.logo-marquee:focus-within .logo-marquee__track {
+  opacity: 1;
+}

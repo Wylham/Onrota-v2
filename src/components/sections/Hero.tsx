@@ -14,6 +14,29 @@ const HERO_PRODUCTS_MAX = HERO_PRODUCTS.reduce((longest, current) =>
   current.length > longest.length ? current : longest,
 );
 
+type ClientLogo = {
+  src: string;
+  alt: string;
+  scale?: number;
+  gapAfter?: number;
+};
+
+const CLIENT_LOGOS: ClientLogo[] = [
+  { src: "/img/clientes/pianettoUI.svg", alt: "Cliente 01" },
+  { src: "/img/clientes/adaptaUI.svg", alt: "Cliente 02" },
+  {
+    src: "/img/clientes/anderle_white.svg",
+    alt: "Cliente 03",
+    scale: 1.24,
+    gapAfter: 20,
+  },
+  { src: "/img/clientes/boaviagem.png", alt: "Cliente 04", scale: 2.24 },
+  { src: "/img/clientes/bellunoUI.svg", alt: "Cliente 05" },
+  { src: "/img/clientes/agrotanUI.svg", alt: "Cliente 06" },
+  { src: "/img/clientes/a5logUI.svg", alt: "Cliente 07" },
+  { src: "/img/clientes/scdUI.svg", alt: "Cliente 08" },
+];
+
 const TypingProduct: React.FC = () => {
   const [productIndex, setProductIndex] = React.useState(0);
   const [typedProduct, setTypedProduct] = React.useState("");
@@ -81,6 +104,81 @@ const TypingProduct: React.FC = () => {
 
 const heroBackgroundStyle: React.CSSProperties = {
   backgroundImage: "url(/img/onrotaliquid.png)",
+};
+
+const LogoMarquee: React.FC = () => {
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const frameRef = React.useRef<number>();
+  const lastTimeRef = React.useRef<number>(0);
+  const offsetRef = React.useRef<number>(0);
+  const [isHovering, setIsHovering] = React.useState(false);
+
+  React.useEffect(() => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const step = (time: number) => {
+      if (!lastTimeRef.current) lastTimeRef.current = time;
+      const delta = (time - lastTimeRef.current) / 8000; // seconds
+      lastTimeRef.current = time;
+
+      const speedPxPerSec = isHovering ? 28 : 70;
+      const track = trackRef.current;
+      if (track) {
+        const loopWidth = track.scrollWidth / 2;
+        offsetRef.current =
+          (offsetRef.current + speedPxPerSec * delta) % loopWidth;
+        track.style.transform = `translateX(-${offsetRef.current}px)`;
+      }
+
+      frameRef.current = requestAnimationFrame(step);
+    };
+
+    frameRef.current = requestAnimationFrame(step);
+    return () => {
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    };
+  }, [isHovering]);
+
+  return (
+    <div
+      className="logo-marquee"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      onFocusCapture={() => setIsHovering(true)}
+      onBlur={() => setIsHovering(false)}
+    >
+      <div className="logo-marquee__track" ref={trackRef}>
+        {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, idx) => (
+          <div
+            key={`${logo.alt}-${idx}`}
+            className="logo-marquee__item"
+            style={
+              logo.gapAfter ? { marginRight: `${logo.gapAfter}px` } : undefined
+            }
+            aria-hidden={idx >= CLIENT_LOGOS.length}
+          >
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="h-9 sm:h-10 w-auto max-w-[160px] opacity-90 transition-opacity duration-200"
+              style={
+                logo.scale
+                  ? {
+                      transform: `scale(${logo.scale})`,
+                      transformOrigin: "center",
+                    }
+                  : undefined
+              }
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export const Hero: React.FC = () => {
@@ -190,6 +288,12 @@ export const Hero: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-8 sm:mt-10 lg:mt-12 space-y-7">
+          <div className="flex items-center text-sm sm:text-base text-white">
+            <span>Aprovado por algumas das maiores empresas do transporte</span>
+          </div>
+          <LogoMarquee />
         </div>
       </Container>
     </section>
