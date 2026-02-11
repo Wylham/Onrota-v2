@@ -1,10 +1,5 @@
 ﻿import React from "react";
-import {
-  ArrowRight,
-  ShieldCheck,
-  Lightning,
-  Database,
-} from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Button, Container, Badge } from "../ui/Base";
 
 const HERO_PRODUCTS = [
@@ -84,6 +79,10 @@ const TypingProduct: React.FC = () => {
   );
 };
 
+const heroBackgroundStyle: React.CSSProperties = {
+  backgroundImage: "url(/img/onrotaliquid.png)",
+};
+
 export const Hero: React.FC = () => {
   return (
     <section
@@ -92,11 +91,11 @@ export const Hero: React.FC = () => {
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-cover bg-center sm:bg-right"
-          style={{ backgroundImage: "url(/img/onrotaliquid.png)" }}
+          className="absolute inset-0 bg-no-repeat bg-cover bg-center lg:bg-[length:140%] lg:bg-[position:0%_50%]"
+          style={heroBackgroundStyle}
         />
-        <div className="absolute inset-0 bg-black/15" />
-        <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/35 to-black/85" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/55 to-black/100" />
       </div>
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -143,92 +142,51 @@ export const Hero: React.FC = () => {
                 Ver soluções
               </Button>
             </div>
-
-            <div
-              data-reveal-children
-              data-reveal-children-delay="70"
-              className="pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4"
-            >
-              <div className="text-center sm:text-left">
-                <h3 className="text-2xl font-semibold text-white">96%</h3>
-                <p className="text-sm text-white">Redução de Fraudes</p>
-              </div>
-              <div className="text-center sm:text-left">
-                <h3 className="text-2xl font-semibold text-white">+1K</h3>
-                <p className="text-sm text-white">Motoristas/dia</p>
-              </div>
-              <div className="text-center sm:text-left">
-                <h3 className="text-2xl font-semibold text-white">24/7</h3>
-                <p className="text-sm text-white">Monitoramento</p>
-              </div>
-            </div>
           </div>
 
           <div
             data-reveal
             data-reveal-delay="120"
-            className="relative hidden lg:block h-[520px] w-full"
+            className="relative hidden lg:flex h-[520px] w-full items-center justify-center"
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full max-w-md rounded-3xl bg-[#0b0b0b] border border-white/10 p-6 shadow-[0_0_40px_rgba(29,167,229,0.12)]">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-brand-primary/15 flex items-center justify-center text-brand-primary">
-                      <ShieldCheck className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-white">
-                        Status da Validação
-                      </div>
-                      <div className="text-xs text-green-400">
-                        Sistema Operacional
-                      </div>
+            <div className="relative w-fit max-w-lg overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#0f1d3d]/75 via-[#0c3c93]/70 to-[#0a7bff]/75 px-9 py-8 shadow-[0_10px_60px_rgba(10,123,255,0.35)] backdrop-blur-lg">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.12),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(84,183,255,0.18),transparent_40%),radial-gradient(circle_at_70%_80%,rgba(0,0,0,0.25),transparent_55%)]" />
+              <div className="relative space-y-5 text-white">
+                <h2 className="text-3xl font-semibold leading-snug">
+                  <span className="block">Mova-se mais rápido.</span>
+                  <span className="block text-[#51d6ff]">Pense grande.</span>
+                </h2>
+                <p className="text-base text-white/85 max-w-md">
+                  Transformando negócios com soluções de ponta
+                </p>
+                <div className="flex items-center gap-4 pt-2">
+                  <div className="flex -space-x-3">
+                    {[
+                      "https://i.pravatar.cc/80?img=32",
+                      "https://i.pravatar.cc/80?img=12",
+                      "https://i.pravatar.cc/80?img=5",
+                    ].map((src, idx) => (
+                      <span
+                        key={src}
+                        className="inline-block h-12 w-12 rounded-full border-2 border-white/70 shadow-md overflow-hidden bg-white/10"
+                        style={{ zIndex: 3 - idx }}
+                      >
+                        <img
+                          src={src}
+                          alt="Cliente satisfeito"
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      </span>
+                    ))}
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-2xl font-semibold">1.000 mil</div>
+                    <div className="text-sm text-white/85">
+                      Clientes satisfeitos
                     </div>
                   </div>
-                  <div className="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded border border-green-500/20">
-                    Ao Vivo
-                  </div>
                 </div>
-
-                <div className="space-y-4">
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-white/10 animate-pulse" />
-                      <div className="flex-1 space-y-2">
-                        <div className="h-2 w-24 bg-white/20 rounded" />
-                        <div className="h-2 w-16 bg-white/10 rounded" />
-                      </div>
-                      <div className="h-6 w-16 bg-brand-primary/20 rounded-full" />
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
-                  <div className="text-xs text-gray-500">
-                    Processando requisições...
-                  </div>
-                  <Lightning className="w-4 h-4 text-yellow-400 animate-pulse" />
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute top-6 right-0 w-64 p-4 bg-[#0b0b0b] border border-white/10 rounded-2xl -rotate-6">
-              <div className="flex items-center gap-3 mb-3">
-                <Database className="w-5 h-5 text-brand-accent" />
-                <span className="text-sm text-gray-300">Integração TMS</span>
-              </div>
-              <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full w-3/4 bg-brand-accent rounded-full" />
-              </div>
-            </div>
-
-            <div className="absolute bottom-16 left-0 w-56 p-4 bg-[#0b0b0b] border border-white/10 rounded-2xl rotate-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-300">Validado</span>
-                <ShieldCheck className="w-5 h-5 text-green-400" />
               </div>
             </div>
           </div>
