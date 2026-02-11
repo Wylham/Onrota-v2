@@ -131,16 +131,16 @@ export const WhoWeAre: React.FC = () => {
 
               <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[360px]">
                 <div
-                  className={`relative hidden lg:block ${
+                  className={`relative hidden lg:flex items-start ${
                     item.side === "left" ? "lg:col-start-2" : "lg:col-start-1"
                   }`}
                 >
                   <span
-                    className={`absolute top-10 text-xs tracking-[0.32em] uppercase font-semibold text-brand-primary ${
+                    className={`absolute top-10 ${
                       item.side === "right" ? "left-10" : "right-10"
-                    }`}
+                    } text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight`}
                   >
-                    [ {item.tag} ]
+                    {item.tag}
                   </span>
                 </div>
 
@@ -149,17 +149,9 @@ export const WhoWeAre: React.FC = () => {
                     item.side === "left" ? "lg:col-start-1" : "lg:col-start-2"
                   }`}
                 >
-                  <div className="flex items-center gap-3 text-white/40 font-mono text-sm">
-                    <span>{item.number}</span>
-                    <span className="h-px w-10 bg-white/20" />
-                    <span className="uppercase tracking-[0.28em] text-[11px] text-brand-primary">
-                      [ {item.tag} ]
-                    </span>
-                  </div>
-
-                  <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
+                  <h4 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-white leading-tight">
                     {item.title} <span className="text-brand-primary">{item.highlight}</span>
-                  </h3>
+                  </h4>
 
                   <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl">
                     {item.description}
