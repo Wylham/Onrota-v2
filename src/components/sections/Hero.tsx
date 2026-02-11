@@ -102,10 +102,6 @@ const TypingProduct: React.FC = () => {
   );
 };
 
-const heroBackgroundStyle: React.CSSProperties = {
-  backgroundImage: "url(/img/onrotaliquid.png)",
-};
-
 const LogoMarquee: React.FC = () => {
   const trackRef = React.useRef<HTMLDivElement>(null);
   const frameRef = React.useRef<number>();
@@ -144,7 +140,7 @@ const LogoMarquee: React.FC = () => {
 
   return (
     <div
-      className="logo-marquee"
+      className="logo-marquee w-full"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onFocusCapture={() => setIsHovering(true)}
@@ -184,48 +180,41 @@ const LogoMarquee: React.FC = () => {
 export const Hero: React.FC = () => {
   return (
     <section
-      data-reveal
-      className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-center overflow-hidden"
+      className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-start lg:items-center overflow-hidden"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-no-repeat bg-cover bg-center lg:bg-[length:140%] lg:bg-[position:0%_50%]"
-          style={heroBackgroundStyle}
-        />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 hero-bg" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/55 to-black/100" />
       </div>
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <Container className="relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-w-0 w-full">
           <div
-            data-reveal
-            data-reveal-children
-            data-reveal-children-delay="90"
-            className="space-y-7 sm:space-y-9 animate-fade-in-up"
+            className="space-y-6 sm:space-y-8 animate-fade-in-up text-center lg:text-left max-w-3xl mx-auto lg:mx-0 min-w-0 w-full"
           >
-            <Badge className="relative overflow-hidden bg-white/5 text-white/90 border-white/15 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.07),0_0_35px_rgba(29,167,229,0.22)] px-4 py-1 text-sm before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] before:opacity-50 before:animate-pulse">
+            <Badge className="relative overflow-hidden bg-white/5 text-white/90 border-white/15 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.07),0_0_35px_rgba(29,167,229,0.22)] px-4 py-1 text-sm before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] before:opacity-50 before:animate-pulse mx-auto lg:mx-0">
               <span className="relative z-10">
                 Mais segurança, menos riscos:
               </span>
             </Badge>
-            <h1 className="font-bold tracking-tighter leading-[1.05] text-white">
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-5xl sm:whitespace-nowrap">
+            <h1 className="font-bold tracking-tighter leading-[1.05] text-white text-balance">
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-5xl lg:whitespace-nowrap">
                 O futuro do transporte
               </span>
-              <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl whitespace-nowrap">
-                é <TypingProduct />
+              <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-5xl 2xl:text-6xl lg:whitespace-nowrap">
+                <span className="inline-block">é <TypingProduct /></span>
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed max-w-xl mx-auto lg:mx-0">
               Reduza fraudes, automatize cadastros e valide motoristas em
               segundos. A plataforma completa para Gerenciadoras de Risco e
               Transportadoras.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-center lg:justify-start w-full max-w-xl mx-auto lg:mx-0">
               <Button
                 size="lg"
-                className="gap-2 group"
+                className="gap-2 group w-full sm:w-auto justify-center"
                 onClick={() => (window.location.href = "#contato")}
               >
                 Falar com especialista
@@ -234,7 +223,7 @@ export const Hero: React.FC = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/30"
+                className="border-white/30 w-full sm:w-auto justify-center"
                 onClick={() => (window.location.href = "#solucoes")}
               >
                 Ver soluções
@@ -243,8 +232,6 @@ export const Hero: React.FC = () => {
           </div>
 
           <div
-            data-reveal
-            data-reveal-delay="120"
             className="relative hidden lg:flex h-[520px] w-full items-center justify-center"
           >
             <div className="relative w-fit max-w-lg overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#0f1d3d]/75 via-[#0c3c93]/70 to-[#0a7bff]/75 px-9 py-8 shadow-[0_10px_60px_rgba(10,123,255,0.35)] backdrop-blur-lg">
@@ -290,7 +277,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
         <div className="mt-8 sm:mt-10 lg:mt-12 space-y-7">
-          <div className="flex items-center text-sm sm:text-base text-white">
+          <div className="flex items-center text-sm sm:text-base text-white justify-center lg:justify-start">
             <span>Aprovado por algumas das maiores empresas do transporte</span>
           </div>
           <LogoMarquee />
