@@ -68,10 +68,11 @@ const MVV_ITEMS = [
 ];
 
 const BACKGROUND_LAYERS =
-  "linear-gradient(180deg, #02040a 0%, #01030a 55%, #02040a 100%)," +
-  "radial-gradient(circle at 18% 26%, rgba(29,167,229,0.22), transparent 44%)," +
-  "radial-gradient(circle at 82% 38%, rgba(29,167,229,0.18), transparent 50%)," +
-  "repeating-linear-gradient(-11deg, rgba(90,170,255,0.78) 0 1px, transparent 1px 70px)";
+  "linear-gradient(90deg, #05060a 0%, #040508 40%, #020203 100%)," +
+  "repeating-linear-gradient(-9deg, rgba(0,130,220,0.22) 0 1px, transparent 1px 95px)," +
+  "repeating-linear-gradient(-9deg, rgba(0,90,180,0.12) 0 1px, transparent 1px 135px)," +
+  "radial-gradient(circle at 78% 42%, rgba(0,150,255,0.14), transparent 46%)," +
+  "radial-gradient(circle at 24% 65%, rgba(0,120,220,0.08), transparent 52%)";
 
 export const WhoWeAre: React.FC = () => {
   return (
@@ -127,12 +128,12 @@ export const WhoWeAre: React.FC = () => {
             className="absolute inset-0"
             style={{
               backgroundImage: BACKGROUND_LAYERS,
-              backgroundSize: "240% 220%",
-              backgroundPosition: "50% 35%",
+              backgroundSize: "200% 200%",
+              backgroundPosition: "60% 38%",
               backgroundRepeat: "no-repeat",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/70" />
 
           <div className="relative space-y-12 sm:space-y-14 lg:space-y-16 py-4 sm:py-6">
             {MVV_ITEMS.map((item) => (
