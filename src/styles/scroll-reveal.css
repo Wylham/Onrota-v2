@@ -61,8 +61,8 @@
 
 @media (max-width: 639px) {
   .hero-bg {
-    background-size: 115%;
-    background-position: 50% 10%;
+    background-size: cover;
+    background-position: 50% 50%;
   }
 }
 
