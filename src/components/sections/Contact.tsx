@@ -4,13 +4,21 @@ import { Phone, EnvelopeSimple, MapPin, InstagramLogo, LinkedinLogo } from '@pho
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contato" className="py-16 sm:py-24 bg-dark relative">
+    <section
+      data-reveal
+      id="contato"
+      className="py-16 sm:py-24 bg-dark relative"
+    >
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-primary/10 to-transparent pointer-events-none" />
       
       <Container>
         <SectionHeader title="Fale com a OnRota" subtitle="Estamos prontos para otimizar sua operação logística." />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+          data-reveal-children
+          data-reveal-children-delay="90"
+        >
             {/* Form */}
             <Card className="p-6 sm:p-8">
                 <form className="space-y-6">

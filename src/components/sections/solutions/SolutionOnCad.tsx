@@ -12,7 +12,10 @@ export const SolutionOnCad: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div
+      data-reveal
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+    >
       <div className="space-y-6 text-center lg:text-left">
         <div className="flex items-center gap-3 justify-center lg:justify-start">
             <div className="p-3 bg-brand-primary/10 rounded-xl text-brand-primary">
@@ -42,7 +45,7 @@ export const SolutionOnCad: React.FC = () => {
       <div className="relative">
          <Card className="border-brand-primary/20">
             <h4 className="text-white font-semibold mb-6">Fluxo de Cadastro</h4>
-            <div className="space-y-6">
+            <div className="space-y-6" data-reveal-children data-reveal-children-delay="70">
                 {steps.map((step, index) => (
                     <div key={step.num} className="flex gap-4 relative">
                         {index !== steps.length - 1 && (

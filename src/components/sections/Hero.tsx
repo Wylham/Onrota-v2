@@ -86,18 +86,26 @@ const TypingProduct: React.FC = () => {
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-center overflow-hidden">
+    <section
+      data-reveal
+      className="relative min-h-screen pt-24 sm:pt-28 pb-20 sm:pb-24 flex items-center overflow-hidden"
+    >
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center sm:bg-right"
           style={{ backgroundImage: "url(/img/onrotaliquid.png)" }}
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/15" />
         <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-b from-transparent via-black/35 to-black/85" />
       </div>
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="space-y-7 sm:space-y-9 animate-fade-in-up">
+          <div
+            data-reveal
+            data-reveal-children
+            data-reveal-children-delay="90"
+            className="space-y-7 sm:space-y-9 animate-fade-in-up"
+          >
             <Badge className="relative overflow-hidden bg-white/5 text-white/90 border-white/15 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.07),0_0_35px_rgba(29,167,229,0.22)] px-4 py-1 text-sm before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] before:opacity-50 before:animate-pulse">
               <span className="relative z-10">
                 Mais segurança, menos riscos:
@@ -136,7 +144,11 @@ export const Hero: React.FC = () => {
               </Button>
             </div>
 
-            <div className="pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
+            <div
+              data-reveal-children
+              data-reveal-children-delay="70"
+              className="pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4"
+            >
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-semibold text-white">96%</h3>
                 <p className="text-sm text-white">Redução de Fraudes</p>
@@ -152,7 +164,11 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative hidden lg:block h-[520px] w-full">
+          <div
+            data-reveal
+            data-reveal-delay="120"
+            className="relative hidden lg:block h-[520px] w-full"
+          >
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-full max-w-md rounded-3xl bg-[#0b0b0b] border border-white/10 p-6 shadow-[0_0_40px_rgba(29,167,229,0.12)]">
                 <div className="flex items-center justify-between mb-6">

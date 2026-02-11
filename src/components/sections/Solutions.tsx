@@ -8,7 +8,11 @@ import { SolutionOnDeep } from "./solutions/SolutionOnDeep";
 
 export const Solutions: React.FC = () => {
   return (
-    <section id="solucoes" className="py-20 sm:py-24 lg:py-28 bg-dark">
+    <section
+      data-reveal
+      id="solucoes"
+      className="py-20 sm:py-24 lg:py-28 bg-dark"
+    >
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div className="space-y-4">
@@ -23,7 +27,11 @@ export const Solutions: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          data-reveal-children
+          data-reveal-children-delay="90"
+        >
           {[
             {
               title: "Focando no seu negócio",
@@ -71,7 +79,9 @@ export const Solutions: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-16 sm:mt-20 space-y-16 sm:space-y-24 lg:space-y-32">
+        <div
+          className="mt-16 sm:mt-20 space-y-16 sm:space-y-24 lg:space-y-32"
+        >
           <SolutionOnRisk />
           <div className="w-full h-px bg-white/10" />
           <SolutionOnCad />
@@ -83,7 +93,7 @@ export const Solutions: React.FC = () => {
           <SolutionOnDeep />
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-20 text-center" data-reveal>
           <h3 className="text-xl sm:text-2xl font-semibold text-white mb-6">
             Pronto para transformar sua operação?
           </h3>

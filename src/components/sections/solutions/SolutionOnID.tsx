@@ -4,7 +4,10 @@ import { Button } from '../../ui/Base';
 
 export const SolutionOnID: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div
+      data-reveal
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+    >
       <div className="space-y-6 text-center lg:text-left">
         <div className="flex items-center gap-3 justify-center lg:justify-start">
             <div className="p-3 bg-purple-500/10 rounded-xl text-purple-400">

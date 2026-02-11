@@ -31,10 +31,14 @@ export const Benefits: React.FC = () => {
   ];
 
   return (
-    <section id="beneficios" className="py-16 sm:py-20 bg-dark">
+    <section data-reveal id="beneficios" className="py-16 sm:py-20 bg-dark">
       <Container>
         <SectionHeader title="Impacto Real no Seu Negócio" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          data-reveal-children
+          data-reveal-children-delay="70"
+        >
           {benefits.map((benefit, idx) => (
             <Card key={idx} className="text-center group hover:bg-white/5 transition-colors">
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">

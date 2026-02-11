@@ -4,8 +4,15 @@ import { Card, Button } from '../../ui/Base';
 
 export const SolutionOnDeep: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-       <div className="order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div
+      data-reveal
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+    >
+       <div
+         className="order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 gap-4"
+         data-reveal-children
+         data-reveal-children-delay="60"
+       >
             {['Histórico Judicial', 'Situação CNH', 'Vínculos Profissionais', 'Validação Doc'].map((item) => (
                 <Card key={item} className="text-center py-6 hover:bg-white/5 transition-colors cursor-default">
                     <FileMagnifyingGlass className="w-6 h-6 text-brand-primary mx-auto mb-2" />

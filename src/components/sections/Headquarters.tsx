@@ -4,9 +4,13 @@ import { Buildings, MapPin } from '@phosphor-icons/react';
 
 export const Headquarters: React.FC = () => {
   return (
-    <section id="sede" className="py-16 sm:py-20 bg-dark">
+    <section data-reveal id="sede" className="py-16 sm:py-20 bg-dark">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
+          data-reveal-children
+          data-reveal-children-delay="100"
+        >
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-white">Nossa Sede</h2>
             <div className="flex items-start gap-4">

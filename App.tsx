@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./src/pages/Home";
 import QuemSomos from "./src/pages/QuemSomos";
+import { ScrollRevealRoot } from "./src/hooks/useScrollReveal";
+import "./src/styles/scroll-reveal.css";
 
 const ScrollToHash: React.FC = () => {
   const location = useLocation();
@@ -25,6 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToHash />
+      <ScrollRevealRoot />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quem-somos" element={<QuemSomos />} />

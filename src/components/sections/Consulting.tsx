@@ -11,14 +11,22 @@ export const Consulting: React.FC = () => {
   ];
 
   return (
-    <section id="consultoria" className="py-16 sm:py-24 bg-[#0a0a0a]">
+    <section
+      data-reveal
+      id="consultoria"
+      className="py-16 sm:py-24 bg-[#0a0a0a]"
+    >
       <Container>
         <SectionHeader 
           title="Consultoria Especializada" 
           subtitle="Não vendemos apenas software. Entregamos inteligência e estratégia para sua gestão de risco."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          data-reveal-children
+          data-reveal-children-delay="70"
+        >
             <Card className="hover:border-brand-primary/40 group">
                 <Briefcase className="w-10 h-10 text-brand-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold text-white mb-2">Financeira</h3>
@@ -37,7 +45,7 @@ export const Consulting: React.FC = () => {
         </div>
 
         {/* Stepper Horizontal */}
-        <div className="relative mb-20 hidden md:flex justify-between">
+        <div className="relative mb-20 hidden md:flex justify-between" data-reveal>
             <div className="absolute top-1/2 left-0 w-full h-1 bg-white/10 -z-10 -translate-y-1/2" />
             {steps.map((step) => (
                 <div key={step.num} className="bg-dark p-4 flex flex-col items-center text-center max-w-[200px]">
@@ -51,7 +59,11 @@ export const Consulting: React.FC = () => {
         </div>
 
         {/* Mobile Stepper */}
-        <div className="md:hidden space-y-6 mb-16">
+        <div
+          className="md:hidden space-y-6 mb-16"
+          data-reveal-children
+          data-reveal-children-delay="70"
+        >
              {steps.map((step) => (
                 <div key={step.num} className="flex gap-4">
                      <div className="w-10 h-10 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center shrink-0">
@@ -66,7 +78,10 @@ export const Consulting: React.FC = () => {
         </div>
 
         {/* Results */}
-        <div className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 rounded-3xl p-8 md:p-12 border border-white/10">
+        <div
+          className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 rounded-3xl p-8 md:p-12 border border-white/10"
+          data-reveal
+        >
             <h3 className="text-center text-white font-bold text-2xl mb-8">Resultados Comprovados</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>

@@ -13,7 +13,10 @@ export const SolutionOnRisk: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div
+      data-reveal
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+    >
       <div className="order-2 lg:order-1 space-y-6 text-center lg:text-left">
         <div className="flex items-center gap-3 justify-center lg:justify-start">
             <div className="p-3 bg-red-500/10 rounded-xl text-red-500">
@@ -26,7 +29,11 @@ export const SolutionOnRisk: React.FC = () => {
           Analise o perfil de risco de motoristas e veículos em tempo real. Nossa plataforma cruza dados de múltiplas fontes para garantir a segurança da sua carga.
         </p>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 text-left">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 text-left"
+          data-reveal-children
+          data-reveal-children-delay="60"
+        >
             {modules.map((mod) => (
                 <div key={mod} className="flex items-center gap-2 text-sm text-gray-400">
                     <CheckCircle className="w-4 h-4 text-brand-primary" />

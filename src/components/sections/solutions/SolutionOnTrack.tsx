@@ -4,9 +4,16 @@ import { Card, Button } from '../../ui/Base';
 
 export const SolutionOnTrack: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div
+      data-reveal
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+    >
       <div className="order-2 lg:order-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          data-reveal-children
+          data-reveal-children-delay="70"
+        >
             <Card className="bg-brand-accent/5 border-brand-accent/20">
                 <Lightning className="w-6 h-6 text-brand-accent mb-3" />
                 <h4 className="text-white font-bold">Tempo Real</h4>

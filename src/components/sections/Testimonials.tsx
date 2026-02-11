@@ -4,11 +4,15 @@ import { Quotes } from '@phosphor-icons/react';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-16 sm:py-20 bg-[#0a0a0a]">
+    <section data-reveal className="py-16 sm:py-20 bg-[#0a0a0a]">
       <Container>
         <SectionHeader title="Quem usa, confia" subtitle="Empresas líderes que transformaram sua gestão de risco com a OnRota." />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          data-reveal-children
+          data-reveal-children-delay="90"
+        >
           <Card className="relative bg-gradient-to-b from-white/5 to-transparent">
             <Quotes className="absolute top-6 left-6 w-8 h-8 text-white/10" />
             <p className="text-gray-300 italic mb-6 pt-8">

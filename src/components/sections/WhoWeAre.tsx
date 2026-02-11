@@ -101,6 +101,7 @@ export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({
 }) => {
   return (
     <section
+      data-reveal
       id={withId ? "quem-somos" : undefined}
       className="relative bg-black pt-24 sm:pt-28 pb-20 sm:pb-24 lg:pb-28 overflow-hidden"
     >
@@ -125,7 +126,7 @@ export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({
               carga e aceleram seus processos.
             </p>
 
-            <div className="space-y-9 sm:space-y-10">
+            <div className="space-y-9 sm:space-y-10" data-reveal-children>
               {JOURNEY_STEPS.map((step) => (
                 <div key={step.number} className="flex items-start gap-4">
                   <span className="text-base font-semibold text-brand-primary">
@@ -153,6 +154,7 @@ export const WhoWeAreIntro: React.FC<{ withId?: boolean }> = ({
 export const MVVSection: React.FC = () => {
   return (
     <section
+      data-reveal
       className="relative isolate overflow-hidden pb-20 sm:pb-24 lg:pb-28"
       style={{
         backgroundColor: "#01030a",
@@ -169,8 +171,13 @@ export const MVVSection: React.FC = () => {
 
       <div className="relative z-10 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
         <div className="space-y-12 sm:space-y-14 lg:space-y-16 py-8 sm:py-12 lg:py-16">
-          {MVV_ITEMS.map((item) => (
-            <Container key={item.tag} className="relative">
+          {MVV_ITEMS.map((item, index) => (
+            <Container
+              key={item.tag}
+              data-reveal
+              data-reveal-delay={`${index * 90}`}
+              className="relative"
+            >
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px] py-10 sm:py-12 lg:py-14">
                 <div
                   className={`relative hidden lg:flex items-start ${
@@ -229,7 +236,7 @@ export const MVVSection: React.FC = () => {
             </Container>
           ))}
 
-          <Container className="relative">
+          <Container data-reveal className="relative">
             <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 p-8 sm:p-10 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_24px_70px_rgba(0,0,0,0.45)]">
               <div className="space-y-4">
                 <p className="text-xs uppercase tracking-[0.2em] text-brand-primary/80">

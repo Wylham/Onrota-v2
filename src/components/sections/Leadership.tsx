@@ -12,7 +12,7 @@ const TEAM = [
 
 export const Leadership: React.FC = () => {
   return (
-    <section id="lideranca" className="py-16 sm:py-20 bg-dark">
+    <section data-reveal id="lideranca" className="py-16 sm:py-20 bg-dark">
       <Container className="space-y-8">
         <div>
           <p className="text-base text-gray-400">Pessoas</p>
@@ -21,7 +21,11 @@ export const Leadership: React.FC = () => {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          data-reveal-children
+          data-reveal-children-delay="90"
+        >
           {TEAM.map((member) => (
             <div
               key={member.name}
