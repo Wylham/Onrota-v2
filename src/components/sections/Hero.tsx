@@ -230,7 +230,7 @@ const HeroClientCard: React.FC<{ className?: string }> = ({
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[100svh] pt-32 sm:pt-28 pb-12 sm:pb-24 flex items-start lg:items-center overflow-hidden">
+    <section className="relative min-h-[100svh] pt-32 sm:pt-28 lg:pt-20 pb-12 sm:pb-24 lg:pb-14 flex items-start lg:items-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute inset-0 hero-bg" />
         <div className="absolute inset-0 bg-black/5" />
@@ -291,7 +291,7 @@ export const Hero: React.FC = () => {
             <HeroClientCard className="w-fit max-w-lg" />
           </div>
         </div>
-        <div className="mt-24 sm:mt-12 lg:mt-12 space-y-6 sm:space-y-9">
+        <div className="mt-24 sm:mt-12 lg:mt-6 space-y-6 sm:space-y-9 lg:space-y-4">
           <div className="flex items-center text-xs sm:text-base text-white justify-center lg:justify-start text-center lg:text-left">
             <span className="max-w-[18rem] sm:max-w-none">
               Aprovado por algumas das maiores empresas do transporte
